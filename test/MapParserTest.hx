@@ -5,7 +5,8 @@ import me.rainma22.osmparser.MapParser;
 class MapParserTest extends Test{
     var parser:MapParser;
     public function setup() {
-        parser = MapParser.fromText("<way></way>");
+        var content:String = sys.io.File.getContent('resources/map.xml');
+        parser = MapParser.fromText(content);
     }
     public function testWayIsExpected(){
         Assert.equals(true,true);
