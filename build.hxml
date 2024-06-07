@@ -1,0 +1,3 @@
+-cp me/rainma22/OsmParser
+me.rainma22.MapParser
+-js bin/js/MapParser.js
