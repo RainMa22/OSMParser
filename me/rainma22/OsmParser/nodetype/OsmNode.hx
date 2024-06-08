@@ -51,14 +51,14 @@ class OsmNode {
 
 	/** Adds the array of names into the array of names in the Node
 	**/
-	public function addNames(names:List<String>) {
+	public function addNames(names:Array<String>) {
 		for (name in names) {
 			addName(name);
 		}
 	}
 
 	/** Returns a copy of this.names**/
-	public function getNames() {
+	public function getNames(): Array<String> {
 		return names.copy();
 	}
 

@@ -16,6 +16,7 @@ class OsmNodeTest extends Test{
         Assert.equals(node.getID(), 1);
         Assert.equals(node.getLongitude(), 2);
         Assert.equals(node.getLatitude(), 3);
+        Assert.equals(node.getNames().length, 0);
     }
 
     public function testConstrctorError() {
@@ -28,9 +29,33 @@ class OsmNodeTest extends Test{
         var id = node.getID();
         var lon = node.getLongitude();
         var lat = node.getLatitude();
-        var output = ["id" => str(id), "lon" => str(lon), "lat" => str(lat)];
+        var output = ["id" => str(id), "lon" => str(lon), "lat" => str(lat), "names"=>""];
         trace(node.getAttributes());
         Assert.same(output, node.getAttributes());
     }
 
+    @:depends(testGetAttributes)
+    public function testGetAttributesWithNames(){
+        var names = ["apple","banana"];
+        node.addNames(names);
+        var id = node.getID();
+        var lon = node.getLongitude();
+        var lat = node.getLatitude();
+        var output = ["id" => str(id), "lon" => str(lon), "lat" => str(lat), "names"=>names.join(",")];
+        trace(node.getAttributes());
+        Assert.same(output, node.getAttributes());
+    }
+
+    public function testAddName(){
+        node.addName("apple");
+        Assert.isTrue(node.getNames().contains("apple"));
+    }
+
+    public function testAddNames(){
+        var arr = ["apple", "banana"];
+        node.addNames(arr);
+        for (name in arr){
+            Assert.isTrue(node.getNames().contains(name));
+        } 
+    }
 }
