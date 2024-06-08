@@ -18,3 +18,8 @@ This is intend to reduce reliance on using API reliance on tools such as OSRM/Va
         - [ ] using manhattan distance
         - [ ] using dijkstra's algorithm
         - [ ] (maybe) A* for performance reasons?
+
+## Development Dependency
+OSMParser needs ``utest`` Haxe package to run its unit tests.
+
+Please run `haxelib install utest` before writing tests for the project.
