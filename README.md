@@ -6,7 +6,7 @@ This main logic code will be kept as portable as possible to allow for transcodi
 
 The Goal of this project is to map OpenStreetMap data into a graph(weighed by distance), and also calculate the approximate duration of walking from one OSM location to another.
 
-This is intend to reduce reliance on using API reliance on tools such as OSRM/Vahalla, etc. On projects needing to use OpenStreetMap features without needing the resources to create a private server.
+This is intended to reduce reliance on using API reliance on tools such as OSRM/Vahalla, etc. On projects needing to use OpenStreetMap features without the resources to create a private server.
 
 ## TODO LIST
 - [ ] Parse the map into nodes
