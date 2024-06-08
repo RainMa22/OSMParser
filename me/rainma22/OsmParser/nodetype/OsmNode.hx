@@ -22,7 +22,17 @@ class OsmNode {
 		}
 	}
 
-	// returns a copy of all attributes recorded.
+	public function getID() {
+		return id;
+	}
+	public function getLongitude(){
+		return lon;
+	}
+	public function getLatitude(){
+		return lat;
+	}
+
+	// returns a map of id, lon, lat as Strings.
 	public function getAttributes():StringMap<String> {
 		return ["id" => Std.string(id), "lon"=>Std.string(lon),"lat"=>Std.string(lat)];
 	}

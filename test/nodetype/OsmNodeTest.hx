@@ -4,6 +4,7 @@ import me.rainma22.osmparser.MapParserException;
 import utest.Assert;
 import me.rainma22.osmparser.nodetype.OsmNode;
 import utest.Test;
+import Std.string in str;
 
 class OsmNodeTest extends Test{
     var node: OsmNode;
@@ -12,10 +13,9 @@ class OsmNodeTest extends Test{
     }
 
     public function testConstrctor() {
-        var nodeAttributes = node.getAttributes();
-        Assert.equals(nodeAttributes.get("id"), "1");
-        Assert.equals(nodeAttributes.get("lon"), "2");
-        Assert.equals(nodeAttributes.get("lat"), "3");
+        Assert.equals(node.getID(), 1);
+        Assert.equals(node.getLongitude(), 2);
+        Assert.equals(node.getLatitude(), 3);
     }
 
     public function testConstrctorError() {
@@ -23,4 +23,14 @@ class OsmNodeTest extends Test{
         Assert.raises(badFunc,MapParserException,"expected MapParserException!",
         "unexpected Exception(not MapParserException)!");
     }
+
+    public function testGetAttributes(){
+        var id = node.getID();
+        var lon = node.getLongitude();
+        var lat = node.getLatitude();
+        var output = ["id" => str(id), "lon" => str(lon), "lat" => str(lat)];
+        trace(node.getAttributes());
+        Assert.same(output, node.getAttributes());
+    }
+
 }
