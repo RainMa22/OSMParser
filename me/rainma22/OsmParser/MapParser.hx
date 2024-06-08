@@ -1,5 +1,5 @@
 package me.rainma22.osmparser;
-import me.rainma22.osmparser.nodetype.Node;
+import me.rainma22.osmparser.nodetype.OsmNode;
 
 class MapParser{
 
@@ -9,7 +9,7 @@ class MapParser{
         xml = Xml.parse(text);
         for (child in xml.elementsNamed('osm').next().elements()){
             trace(child.toString());
-            var node: Node = new Node(child);
+            var node: OsmNode = new OsmNode(child);
         }
     }
 
