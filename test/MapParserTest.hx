@@ -5,7 +5,7 @@ import me.rainma22.osmparser.MapParser;
 class MapParserTest extends Test{
     var parser:MapParser;
     public function setup() {
-        var content:String = sys.io.File.getContent('resources/map.xml');
+        var content:String = sys.io.File.getContent('resources/test.xml');
         parser = MapParser.fromText(content);
     }
     public function testWayIsExpected(){
