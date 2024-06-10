@@ -21,6 +21,8 @@ class OsmNode {
 
 		Throws AttributeNotFoundException
 		when id cannot be parsed into an int or at least one of [lon, lat] cannot be parsed into Float
+
+		@param xml a xml Element of type "node" 
 	**/
 	public function new(xml:Xml) {
 		names = new Array<String>();
