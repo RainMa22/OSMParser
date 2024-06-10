@@ -1,6 +1,7 @@
 package me.rainma22.osmparser.nodetype;
 
 import haxe.ds.StringMap;
+import me.rainma22.osmparser.exceptions.AttributeNotFoundException;
 
 /**represents a Node in xml, with attributes store in a Map **/
 class OsmNode {
@@ -16,7 +17,10 @@ class OsmNode {
 		Initiates names as an empty array;
 
 		Creates a new node with id, lat, lon provided in the xml element.
-		 			or at least one of [lon, lat] cannot be parsed into Float
+		 			
+
+		Throws AttributeNotFoundException
+		when id cannot be parsed into an int or at least one of [lon, lat] cannot be parsed into Float
 	**/
 	public function new(xml:Xml) {
 		names = new Array<String>();
@@ -25,7 +29,7 @@ class OsmNode {
 		lat = Std.parseFloat(xml.get("lat"));
 		for (attribute in [id, lon, lat]) {
 			if (attribute == null) {
-				throw new MapParserException("xml element ${xml.toString()} doe not have ${attribute}!");
+				throw new AttributeNotFoundException("xml element ${xml.toString()} doe not have ${attribute}!");
 			}
 		}
 	}

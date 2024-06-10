@@ -10,7 +10,6 @@ class MapParser{
     private function new(text: String) {
         xml = Xml.parse(text);
         for (child in xml.elementsNamed('osm').next().elements()){
-            trace(child.toString());
             var node: OsmNode = new OsmNode(child);
         }
     }

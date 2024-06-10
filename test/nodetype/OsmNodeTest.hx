@@ -1,6 +1,6 @@
 package nodetype;
 
-import me.rainma22.osmparser.MapParserException;
+import me.rainma22.osmparser.exceptions.AttributeNotFoundException;
 import utest.Assert;
 import me.rainma22.osmparser.nodetype.OsmNode;
 import utest.Test;
@@ -21,7 +21,7 @@ class OsmNodeTest extends Test{
 
     public function testConstrctorError() {
         function badFunc(){var badNode:OsmNode = new OsmNode(Xml.parse("<node/>").firstChild());}
-        Assert.raises(badFunc,MapParserException,"expected MapParserException!",
+        Assert.raises(badFunc, AttributeNotFoundException,"expected MapParserException!",
         "unexpected Exception(not MapParserException)!");
     }
 
@@ -30,7 +30,6 @@ class OsmNodeTest extends Test{
         var lon = node.getLongitude();
         var lat = node.getLatitude();
         var output = ["id" => str(id), "lon" => str(lon), "lat" => str(lat), "names"=>""];
-        trace(node.getAttributes());
         Assert.same(output, node.getAttributes());
     }
 

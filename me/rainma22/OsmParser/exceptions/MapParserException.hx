@@ -1,4 +1,4 @@
-package me.rainma22.osmparser;
+package me.rainma22.osmparser.exceptions;
 
 import haxe.Exception;
 
