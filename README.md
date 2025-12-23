@@ -16,9 +16,8 @@ This is intended to reduce reliance on using API reliance on tools such as OSRM/
     - [ ] calculate the distance of two nodes
         - [ ] lon/lat converstion to kilometers
         - [ ] using manhattan distance
-        - [ ] using dijkstra's algorithm
-        - [ ] (maybe) A* for performance reasons?
-
+        - [ ] A*
+    
 ## Development Dependency
 OSMParser needs ``utest`` Haxe package to run its unit tests.
 
